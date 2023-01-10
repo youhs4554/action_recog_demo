@@ -1,0 +1,7 @@
+Pillow
+grpcio==1.39.0
+grpcio-tools==1.39.0
+opencv-python==4.6.0.66
+locust
+gevent
+numpy

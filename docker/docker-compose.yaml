@@ -1,0 +1,17 @@
+version: "3"
+
+services:
+  camera-action:
+    container_name: camera-action
+    image: hossay/camera-action:0.1.0
+    ports:
+      - 7070:7070 # gRPC inference port
+      - 8501:8501 # dashboard
+    command: sh -c scripts/start_torch_serve.sh; scripts/start_dashboard.sh
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              device_ids: ['0']
+              capabilities: [gpu]
